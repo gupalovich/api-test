@@ -1,0 +1,8 @@
+django==5.0.1
+django-ninja==1.1.0
+django-extensions
+graphene-django
+
+# Code quality
+black
+ruff
