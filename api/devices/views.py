@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404
+
 from api.schema import Error404
 from src.ninja import api
 
@@ -9,12 +11,12 @@ def location_list(request):
     return Location.objects.all()
 
 
-@api.get("locations/{id}/", response={200: LocationSchema, 404: Error404})
+@api.get("locations/{id}/", response={200: LocationSchema, 409: Error404})
 def location_get(request, id):
     try:
         return Location.objects.get(id=id)
     except Location.DoesNotExist:
-        return 404, 404
+        return 409, Error404
 
 
 @api.get("devices/", response=list[DeviceSchema])
@@ -22,9 +24,6 @@ def device_list(request):
     return Device.objects.select_related("location")
 
 
-@api.get("devices/{slug}/", response={200: DeviceSchema, 404: Error404})
+@api.get("devices/{slug}/", response={200: LocationSchema, 409: Error404})
 def device_get(request, slug):
-    try:
-        return Device.objects.get(slug=slug)
-    except Device.DoesNotExist:
-        return 404, {"message": "Device not found"}
+    return get_object_or_404(Device, slug=slug)
