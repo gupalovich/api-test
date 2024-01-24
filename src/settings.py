@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMIN_URL = "administrator/"
+
 
 # Application definition
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # custom apps
+    "cars",
     "devices",
 ]
 
@@ -137,3 +140,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+
+# ElasticSearch
+# --------------------------------------------------------
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "localhost:9200",
+        "http_auth": ("debug", "debug"),
+    }
+}
