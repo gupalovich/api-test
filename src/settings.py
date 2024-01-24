@@ -145,9 +145,5 @@ CORS_ALLOWED_ORIGINS = [
 
 # ElasticSearch
 # --------------------------------------------------------
-ELASTICSEARCH_DSL = {
-    "default": {
-        "hosts": "localhost:9200",
-        "http_auth": ("elastic", "WoqiRk7*wzJFICpWmpBC"),
-    }
-}
+ELASTICSEARCH_URL = "localhost:9200"
+ELASTICSEARCH_AUTH = ("elastic", "WoqiRk7*wzJFICpWmpBC")

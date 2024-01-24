@@ -3,6 +3,7 @@ django-ninja==1.1.0
 django-extensions
 graphene-django
 elasticsearch_dsl==8.12.0
+requests
 
 # Code quality
 black
