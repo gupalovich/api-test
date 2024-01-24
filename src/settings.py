@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # custom apps
     "cars",
     "devices",
+    "filters",
 ]
 
 THIRD_PARTY_APPS = [
