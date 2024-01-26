@@ -147,3 +147,12 @@ CORS_ALLOWED_ORIGINS = [
 # --------------------------------------------------------
 ELASTICSEARCH_URL = "localhost:9200"
 ELASTICSEARCH_AUTH = ("elastic", "WoqiRk7*wzJFICpWmpBC")
+ELASTICSEARCH_DSL = {
+    "default": {
+        "hosts": "http://localhost:9200",
+        "http_auth": ("elastic", "WoqiRk7*wzJFICpWmpBC"),
+        # "ca_certs": "http_ca.crt",
+        # "verify_certs": False,
+        # "ssl_show_warn": False,
+    }
+}

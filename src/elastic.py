@@ -1,6 +1,5 @@
 from elasticsearch import Elasticsearch
 
-# TODO: разобраться, как адекватно достать сертификат из контейнера
 client = Elasticsearch(
     "https://localhost:9200",
     basic_auth=("elastic", "WoqiRk7*wzJFICpWmpBC"),
