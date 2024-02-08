@@ -10,5 +10,4 @@ class CarsConfig(AppConfig):
     def ready(self) -> None:
         # self.module.autodiscover()
         connections.configure(**settings.ELASTICSEARCH_DSL)
-
-        print(connections.get_connection())
+        print(connections.get_connection().info())
