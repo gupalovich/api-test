@@ -1,10 +1,8 @@
-from elasticsearch import Elasticsearch
+from elasticsearch_dsl.connections import connections
 
-client = Elasticsearch(
-    "https://localhost:9200",
-    basic_auth=("elastic", "WoqiRk7*wzJFICpWmpBC"),
-    # ca_certs="http_ca.crt",
-    verify_certs=False,
-    ssl_show_warn=False,
-)
-print(client.info())
+
+def setup_elasticsearch_connection(settings: dict, verbose: bool = True):
+    connections.configure(**settings)
+    if verbose:
+        print(connections.get_connection().info())
+    return connections.get_connection()

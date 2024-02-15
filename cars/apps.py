@@ -1,6 +1,4 @@
 from django.apps import AppConfig
-from django.conf import settings
-from elasticsearch_dsl.connections import connections
 
 
 class CarsConfig(AppConfig):
@@ -8,6 +6,4 @@ class CarsConfig(AppConfig):
     name = "cars"
 
     def ready(self) -> None:
-        # self.module.autodiscover()
-        connections.configure(**settings.ELASTICSEARCH_DSL)
-        print(connections.get_connection().info())
+        pass
