@@ -1,7 +1,18 @@
+from django.conf import settings
 from django.urls import path
+from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from .devices.views import api as device_api
+from .filters.views import CarsFilterApiView
 
-urlpatterns = [
-    path("", device_api.urls),
+app_name = "api"
+
+if settings.DEBUG:
+    router = DefaultRouter()
+else:
+    router = SimpleRouter()
+
+
+urlpatterns = router.urls
+urlpatterns += [
+    path("filter/", CarsFilterApiView.as_view(), name="filter"),
 ]
