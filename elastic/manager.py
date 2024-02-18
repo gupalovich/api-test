@@ -9,6 +9,12 @@ from .documents.cars import CarDocument
 class ElasticManager:
     documents = [CarDocument]
 
+    def update_from_index(index: str, instance: Car):
+        pass
+
+    def delete_from_index(index: str, instance: Car):
+        pass
+
     @classmethod
     def index(cls, documents: list[ElasticDocument] = None):
         documents = documents or cls.documents
